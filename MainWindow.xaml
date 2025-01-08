@@ -14,8 +14,9 @@
         <ListBox x:Name="EventsBox" HorizontalAlignment="Left" Height="253" Margin="74,0,0,0" VerticalAlignment="Center" Width="288" SelectionChanged="EventsBox_SelectionChanged"/>
         <ListBox x:Name="TicketsBox" HorizontalAlignment="Left" Height="253" Margin="423,0,0,0" VerticalAlignment="Center" Width="300"/>
         <Label Content="Number of Tickets" HorizontalAlignment="Left" Margin="439,370,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="551,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Book" HorizontalAlignment="Left" Margin="695,373,0,0" VerticalAlignment="Top" Width="53"/>
+        <TextBox x:Name="NoOfTickets" HorizontalAlignment="Left" Margin="551,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Book" HorizontalAlignment="Left" Margin="695,373,0,0" VerticalAlignment="Top" Width="53" Click="Button_Click"/>
+        <Label x:Name="MsgLabel" Content="" HorizontalAlignment="Left" Height="57" Margin="37,349,0,0" VerticalAlignment="Top" Width="350" FontSize="16"/>
 
     </Grid>
 </Window>
