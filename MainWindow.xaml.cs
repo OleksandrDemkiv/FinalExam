@@ -47,14 +47,24 @@ namespace FinalExam // https://github.com/OleksandrDemkiv/FinalExam
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            events.Sort(); // sort events by date
+
             // set events item source
             EventsBox.ItemsSource = events;
         }
 
         private void EventsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // when event is selected, set tickets item source
-            TicketsBox.ItemsSource = (EventsBox.SelectedItem as Event).Tickets;
+            Event selectedEvent = EventsBox.SelectedItem as Event;
+           
+            if (selectedEvent != null) // if any event selected
+            {
+                TicketsBox.ItemsSource = selectedEvent.Tickets;
+            }
+            else
+            {
+                TicketsBox.ItemsSource = null; // or handle the null case appropriately
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) // when book button is clicked
@@ -90,6 +100,35 @@ namespace FinalExam // https://github.com/OleksandrDemkiv/FinalExam
             (TicketsBox.SelectedItem as Ticket).AvailableTickets -= noOfTickets;
             MsgLabel.Content = $"{(TicketsBox.SelectedItem as Ticket).Name}, {noOfTickets}\ntickets booked successfully";
             MsgLabel.Foreground = Brushes.Green;
+
+            TicketsBox.Items.Refresh(); // updating the list box immediately
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (EventsBox == null) return; // crash fix on load
+
+            // first checing for emptying the search box and returning all events
+            if (SearchBox.Text == "")
+            {
+                EventsBox.ItemsSource = events;
+                return;
+            }
+
+            // new list for searched events
+            List<Event> SearchedEvents = new List<Event>();
+
+            // searching for events
+            foreach (Event ev in events)
+            {
+                if (ev.Name.ToLower().Contains(SearchBox.Text.ToLower()))
+                {
+                    SearchedEvents.Add(ev);
+                }
+            }
+
+            // setting the searched events
+            EventsBox.ItemsSource = SearchedEvents;
         }
     }
 }

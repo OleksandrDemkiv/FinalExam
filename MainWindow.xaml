@@ -9,7 +9,7 @@
         Loaded="Window_Loaded">
     <Grid>
         <Label Content="Events" HorizontalAlignment="Left" Margin="74,40,0,0" VerticalAlignment="Top" Width="54"/>
-        <TextBox HorizontalAlignment="Left" Margin="152,45,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" Height="21"/>
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="152,45,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" Height="21" TextChanged="TextBox_TextChanged"/>
         <Label Content="Tickets" HorizontalAlignment="Left" Margin="426,43,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="EventsBox" HorizontalAlignment="Left" Height="253" Margin="74,0,0,0" VerticalAlignment="Center" Width="288" SelectionChanged="EventsBox_SelectionChanged"/>
         <ListBox x:Name="TicketsBox" HorizontalAlignment="Left" Height="253" Margin="423,0,0,0" VerticalAlignment="Center" Width="300"/>
