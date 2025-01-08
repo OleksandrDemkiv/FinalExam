@@ -27,6 +27,12 @@ namespace FinalExam
             return EventDate.CompareTo(other.EventDate);
         }
 
+        // override ToString method for displaying
+        public override string ToString()
+        {
+            return $"{Name} - {EventDate:dd/MM/yyyy}";
+        }
+
         // main constructor
         public Event(string name, DateTime eventDate, EventType typeOfEvent, List<Ticket> tickets)
         {

@@ -11,6 +11,12 @@ namespace FinalExam
         public string AdditionalExtras { get; set; }
         public decimal AdditionalCost { get; set; }
         
+        // override ToString method for displaying
+        public override string ToString()
+        {
+            return $"{Name} - {(Price+AdditionalCost):c} {AdditionalExtras} [AVAILABLE - {AvailableTickets}]";
+        }
+
         // main constructor with reference to base class
         public VIPTicket(string name, decimal price, int availableTickets, string additionalExtras, decimal additionalCost) : base(name, price, availableTickets)
         {
@@ -24,6 +30,12 @@ namespace FinalExam
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int AvailableTickets { get; set; }
+
+        // override ToString method for displaying
+        public override string ToString()
+        {
+            return $"{Name} - {Price:c} [AVAILABLE - {AvailableTickets}]";
+        }
 
         // main constructor
         public Ticket(string name, decimal price, int availableTickets)
